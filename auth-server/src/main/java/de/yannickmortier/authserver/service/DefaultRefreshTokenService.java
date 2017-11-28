@@ -40,6 +40,4 @@ public class DefaultRefreshTokenService implements RefreshTokenService {
         refreshTokenRepository.delete(tokenToDelete);
     }
 
-
-
 }

@@ -1,6 +1,5 @@
 package de.yannickmortier.authserver.domain;
 
-import de.yannickmortier.authserver.domain.User;
 import lombok.*;
 
 import javax.persistence.*;
@@ -13,7 +12,7 @@ import java.util.UUID;
 @Getter
 @EqualsAndHashCode(exclude = "users")
 @ToString(exclude = "users")
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 public class Role {
     @Id
     @GeneratedValue
@@ -25,7 +24,4 @@ public class Role {
     @ManyToMany( mappedBy = "roles" )
     private Set<User> users = new HashSet<>();
 
-    public Role(String role) {
-        this.role = role;
-    }
 }

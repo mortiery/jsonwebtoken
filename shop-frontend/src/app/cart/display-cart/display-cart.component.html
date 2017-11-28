@@ -1,0 +1,25 @@
+<div *ngIf="productsInCart.length > 0; else noProducts">
+  <table class="ui single line table">
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th>Price</th>
+      <th *ngIf="standalone">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of productsInCart">
+      <td>{{product.title}}</td>
+      <td>€ {{product.price}}</td>
+      <td *ngIf="standalone"><button (click)="removeProductFromCart(product)" class="ui icon button"><i class="remove icon"></i></button></td>
+    </tr>
+    <tr class="active">
+      <td style="text-align: right" colspan="3">Total: € {{getOrderTotal()}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noProducts>
+  No products in cart, go do some shopping!
+</ng-template>

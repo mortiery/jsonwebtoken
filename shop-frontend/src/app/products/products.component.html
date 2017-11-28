@@ -1,0 +1,22 @@
+<div *ngIf="products !== null; else loading">
+  <div class="ui grid">
+    <div *ngFor="let product of products" class="five wide column">
+      <div class="ui card">
+        <div class="image">
+          <img src="products/images/{{product.imageName}}">
+        </div>
+        <div class="content">
+          <a class="header">{{product.title}}</a>
+          <div class="description">{{product.description | slice:0:75 }}</div>
+        </div>
+        <div class="extra content">
+          <i class="euro icon"></i> {{product.price}}
+        </div>
+        <div class="ui bottom attached button" (click)="addProductToCart(product)"><i class="add icon"></i> Add to cart</div>
+    </div>
+    </div>
+  </div>
+</div>
+<ng-template #loading>
+  Loading products...
+</ng-template>

@@ -1,0 +1,32 @@
+<h1 class="ui header">Checkout</h1>
+
+<app-cart [standalone]="false"></app-cart>
+
+<h2 class="ui header">Enter credit card details to finalize order:</h2>
+
+<form class="ui form" (ngSubmit)="placeOrder(form.value)" #form="ngForm">
+  <div class="sixteen wide field">
+    <label for="name-on-card">Name on card</label>
+    <input type="text" id="name-on-card" name="nameOnCard" placeholder="Full Name" ngModel>
+  </div>
+  <div class="fields">
+    <div class="ten wide field">
+      <label for="creditcard">Credit Card Number</label>
+      <input type="text" id="creditcard" name="creditCard" placeholder="Card #" ngModel>
+    </div>
+    <div class="six wide field">
+      <label>Expires</label>
+      <div class="two fields">
+        <div class="field">
+          <input type="text" name="expiryMonth" placeholder="Month" ngModel>
+        </div>
+        <div class="field">
+          <input type="text" name="expiryYear" placeholder="Year" ngModel>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <button class="ui button" type="submit">Submit Order</button>
+  </div>
+</form>

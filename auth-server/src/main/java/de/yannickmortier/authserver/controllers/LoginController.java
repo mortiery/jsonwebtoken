@@ -35,7 +35,10 @@ public class LoginController {
         if (result.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
+        return createTokensForUserCredentials(loginCredentials, request);
+    }
 
+    private ResponseEntity<TokenHolder> createTokensForUserCredentials(@Valid @RequestBody LoginCredentials loginCredentials, HttpServletRequest request) {
         User user =  userService.findByUserName(loginCredentials.getUsername());
         if (user == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);

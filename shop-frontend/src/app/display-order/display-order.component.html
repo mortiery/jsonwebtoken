@@ -1,0 +1,21 @@
+<h1>Order summary</h1>
+
+<div *ngIf="order !== null; else loading">
+  <div class="ui bulleted list">
+    <div class="item">Order Total: {{order.orderTotal}}</div>
+    <div class="item">Last 4 credit card digits: {{order.creditCardDigits}}</div>
+    <div class="item">
+      Ordered Products:
+      <div class="list">
+        <div class="item" *ngFor="let boughtProduct of order.boughtProducts">
+          {{boughtProduct.title}} - {{boughtProduct.price}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="ui header">Thank you for your purchase!</h2>
+</div>
+<ng-template #loading>
+  Loading order details...
+</ng-template>

@@ -1,0 +1,14 @@
+<div *ngIf="standalone">
+  <h1 class="ui header">Cart</h1>
+
+  <a *ngIf="productsInCart !== null && productsInCart.length > 0" class="ui right labeled icon button" [routerLink]="['/checkOut']"><i class="right arrow icon"></i> Checkout </a>
+</div>
+
+<div *ngIf="productsInCart !== null; else loading">
+  <app-display-cart [productsInCart]="productsInCart" [standalone]="standalone" (removeProgram)="removeProductFromCart($event)"></app-display-cart>
+</div>
+<ng-template #loading>
+  Loading cart products...
+</ng-template>
+
+

@@ -1,0 +1,15 @@
+<div class="ui fixed inverted menu">
+  <div class="ui container">
+    <a [routerLink]="['/']" class="header item">
+      Fog Store
+    </a>
+    <a [routerLink]="['/']" class="item">Home</a>
+    <a *ngIf="userHasAdminRole" style="cursor: pointer;" class="item">Secret Admin Area</a>
+
+    <div class="right menu">
+      <app-cart-header *ngIf="loggedIn" class="item"></app-cart-header>
+      <a *ngIf="!loggedIn" [routerLink]="['/login']" class="item">Login</a>
+      <a *ngIf="loggedIn" style="cursor: pointer;" (click)="onLogout()" class="item">Logout</a>
+    </div>
+  </div>
+</div>
